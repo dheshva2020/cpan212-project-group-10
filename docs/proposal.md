@@ -6,10 +6,25 @@
 - Syeda Shah (@nowalshah)
 
 ## 1. Problem and Users
+People sometimes have trouble deciding what to cook for the week. They may also save recipes in different places, which makes it hard to keep their meals organized.
+
+Our app is for students, busy people, and anyone who wants to plan their meals. Users can find recipes, save meals, and organize them into a meal plan.
 
 ## 2. MVP Features
+- A user can search for recipes.
+- A user can view recipe details.
+- A user can create a meal plan.
+- A user can view their meal plans.
+- A user can add a meal to a meal plan.
+- A user can edit a meal plan.
+- A user can delete a meal plan.
 
 ## Later Features
+- Grocery list
+- Nutrition information
+- Recipe ratings and reviews
+- Share meal plans with other users
+- Personalized recipe suggestions
 
 ## 3. External API
 
@@ -105,6 +120,10 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
 | GET | /api/recipes/search?q=chicken | Search recipes using TheMealDB | 200 | 400, 502, 504 |
 
 ## 6. Wireframes
+1- List -> Meal Plans
+2- Detail -> Meal Plan details
+3- Create -> Create Meal Plan form
+4- Edit -> Edit Meal Plan form
 
 ## 7. Team Roles
 
