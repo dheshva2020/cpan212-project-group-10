@@ -120,10 +120,18 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
 | GET | /api/recipes/search?q=chicken | Search recipes using TheMealDB | 200 | 400, 502, 504 |
 
 ## 6. Wireframes
-1- List -> Meal Plans
-2- Detail -> Meal Plan details
-3- Create -> Create Meal Plan form
-4- Edit -> Edit Meal Plan form
+
+### Meal Plans List
+![Meal Plans List](wireframes/List Meals Plan- wirefram 1.png)
+
+### Meal Plan Detail
+![Meal Plan Detail](wireframes/Meal Plan- wireframe.png)
+
+### Create Meal Plan
+![Create Meal Plan](wireframes/meal plan-wireframe.png)
+
+### Edit Meal Plan
+![Edit Meal Plan](wireframes/Edit Meal Plan-wireframe.png)
 
 ## 7. Team Roles
 
