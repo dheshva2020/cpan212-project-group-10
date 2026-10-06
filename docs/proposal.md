@@ -62,6 +62,7 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
     }
   ]
 }
+```
 
 ## 4. Data Model
 
@@ -121,17 +122,13 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
 
 ## 6. Wireframes
 
-### Meal Plans List
-![Meal Plans List](wireframes/List Meals Plan- wirefram 1.png)
+![Meal Plans List](wireframes/List%20Meals%20Plan-%20wirefram%201.png)
 
-### Meal Plan Detail
-![Meal Plan Detail](wireframes/Meal Plan- wireframe.png)
+![Meal Plan Detail](wireframes/Meal%20Plan-%20wireframe.png)
 
-### Create Meal Plan
-![Create Meal Plan](wireframes/meal plan-wireframe.png)
+![Create Meal Plan](wireframes/meal%20plan-wireframe.png)
 
-### Edit Meal Plan
-![Edit Meal Plan](wireframes/Edit Meal Plan-wireframe.png)
+![Edit Meal Plan](wireframes/Edit%20Meal%20Plan-wireframe.png)
 
 ## 7. Team Roles
 
