@@ -17,6 +17,16 @@
 
 ## M2
 
+### Prabu Elangovan (@dheshva2020)
+- Set up the Node.js 24 and Express 5 API project.
+- Implemented Meal Plans CRUD endpoints.
+- Added Zod validation for Meal Plans create and update requests.
+- Implemented TheMealDB recipe search endpoint.
+- Added external API timeout handling and in-memory caching.
+- Added cache-hit logging.
+- Updated the API README with setup instructions and endpoint documentation.
+- Initial M2 commit: 7c7d567.
+
 ### Syeda Shah (@nowalshah)
 - Implemented Meals CRUD endpoints (GET, POST, PUT, DELETE).
 - Added Zod validation for Meals create and update requests.
