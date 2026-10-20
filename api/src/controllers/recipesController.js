@@ -42,14 +42,16 @@ export async function searchRecipes(req, res, next) {
       if (error.name === "TimeoutError") {
         return res.status(504).json({
           error: {
-            message: "TheMealDB request timed out"
+            message: "TheMealDB request timed out",
+            details: null
           }
         });
       }
 
       return res.status(502).json({
         error: {
-          message: "Unable to reach TheMealDB"
+          message: "Unable to reach TheMealDB",
+          details: null
         }
       });
     }
@@ -57,7 +59,8 @@ export async function searchRecipes(req, res, next) {
     if (!response.ok) {
       return res.status(502).json({
         error: {
-          message: "TheMealDB returned an error"
+          message: "TheMealDB returned an error",
+          details: null
         }
       });
     }
