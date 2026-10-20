@@ -1,0 +1,26 @@
+meta {
+  name: Invalid Meal
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:4000/api/meals
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {}
+}
+
+tests {
+  test("Returns 400", function() {
+    expect(res.getStatus()).to.equal(400);
+    expect(res.getBody().error.message).to.equal("Validation failed");
+  });
+}

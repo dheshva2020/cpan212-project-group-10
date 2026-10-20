@@ -1,0 +1,31 @@
+meta {
+  name: Update Meal
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:4000/api/meals/meal-1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Updated Chicken Salad",
+    "category": "Lunch",
+    "ingredients": ["chicken", "lettuce"],
+    "instructions": "Mix and serve."
+  }
+}
+
+tests {
+  test("Returns 200", function() {
+    expect(res.getStatus()).to.equal(200);
+    expect(res.getBody().name).to.equal("Updated Chicken Salad");
+  });
+}

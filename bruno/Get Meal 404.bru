@@ -1,0 +1,18 @@
+meta {
+  name: Get Meal 404
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:4000/api/meals/wrong-id
+  body: none
+  auth: none
+}
+
+tests {
+  test("Missing meal returns 404", function() {
+    expect(res.getStatus()).to.equal(404);
+    expect(res.getBody().error.message).to.equal("Meal not found");
+  });
+}

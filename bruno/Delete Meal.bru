@@ -1,0 +1,17 @@
+meta {
+  name: Delete Meal
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:4000/api/meals/meal-2
+  body: none
+  auth: none
+}
+
+tests {
+  test("Returns 204", function() {
+    expect(res.getStatus()).to.equal(204);
+  });
+}
