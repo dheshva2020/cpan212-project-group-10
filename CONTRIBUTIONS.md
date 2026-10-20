@@ -14,3 +14,12 @@
 - Responsible for problem and target users.
 - Responsible for MVP and later features.
 - Responsible for wireframes.
+
+## M2
+
+### Syeda Shah (@nowalshah)
+- Implemented Meals CRUD endpoints (GET, POST, PUT, DELETE).
+- Added Zod validation for Meals create and update requests.
+- Added 404 and error-handling middleware.
+- Created Bruno requests and tests for Meals and error responses.
+- Commit: 1114b18.
