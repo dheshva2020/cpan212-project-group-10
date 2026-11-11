@@ -33,3 +33,16 @@
 - Added 404 and error-handling middleware.
 - Created Bruno requests and tests for Meals and error responses.
 - Commit: 1114b18.
+
+## M3
+
+### Syeda Shah (@nowalshah)
+- Created React Context to share recipe search state between the Home and Recipes pages.
+- Developed the Recipe Search page using the Express API.
+- Displayed recipe images, names, categories, and origins.
+- Added loading, empty-result, and error states.
+- Updated the Home page and navigation links.
+- Configured Next.js API rewrites using API_ORIGIN.
+- Added the example environment configuration.
+- Successfully built the Next.js frontend.
+- Tested recipe search with the running Express backend.
