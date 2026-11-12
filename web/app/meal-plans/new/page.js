@@ -69,7 +69,7 @@ export default function NewMealPlan() {
           />
         </p>
 
-        <button type="submit">Save Meal Plan</button>
+        <button type="submit"> Create Meal Plan</button>
       </form>
 
       {error && <p>{error}</p>}

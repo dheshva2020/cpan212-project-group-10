@@ -17,7 +17,7 @@ export default async function MealPlansPage() {
 
   return (
     <main>
-      <h1>My Meal Plans</h1>
+      <h1>My weekly Meal Plans</h1>
 
       <p>
         <Link href="/meal-plans/new">Add Meal Plan</Link>
