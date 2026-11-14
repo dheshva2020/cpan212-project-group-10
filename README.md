@@ -44,3 +44,22 @@ were tested with the Express API.
 
 The Next.js production build was successful
 using npm run build.
+
+## Milestone 4 - MongoDB Integration
+
+In M4, we are adding MongoDB to save Meals and Meal Plans in the database.
+
+### Database Setup
+- Set up MongoDB locally or use MongoDB Atlas.
+- Add `MONGODB_URI` to the API `.env` file.
+- Run `npm install` inside the `api` folder.
+- Run `npm run seed` to add sample data.
+- Start the API using `npm run dev`.
+
+### New Features
+- Added filtering and sorting options to the Meal Plans page.
+- Added Previous and Next buttons for pagination.
+- Improved validation error messages in the Add and Edit Meal Plan forms.
+
+### Testing
+The frontend was tested using `npm run build`, and the build was successful.

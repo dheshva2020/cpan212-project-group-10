@@ -46,3 +46,14 @@
 - Added the example environment configuration.
 - Successfully built the Next.js frontend.
 - Tested recipe search with the running Express backend.
+
+
+## M4
+
+### Syeda Shah (@nowalshah)
+- Improved the Meal Plans page by adding a search filter to help users find meal plans by name.
+- Added sorting options to organize meal plans by name or date.
+- Implemented pagination with Previous and Next buttons.
+- Updated the Add Meal Plan form to display validation errors beside the correct fields, making it easier for users to understand and fix mistakes.
+- Improved error handling in the Edit Meal Plan form.
+- Tested the frontend using `npm run build` and confirmed it compiled successfully.
