@@ -57,3 +57,17 @@
 - Updated the Add Meal Plan form to display validation errors beside the correct fields, making it easier for users to understand and fix mistakes.
 - Improved error handling in the Edit Meal Plan form.
 - Tested the frontend using `npm run build` and confirmed it compiled successfully.
+
+### Prabu Elangovan (@dheshva2020)
+
+- Integrated MongoDB Atlas with the Express backend using Mongoose.
+- Created Meal and MealPlan database models.
+- Implemented database relationships and schema validation.
+- Migrated Meals and Meal Plans CRUD operations to MongoDB.
+- Implemented backend filtering, sorting and pagination.
+- Created a database seed script with sample data.
+- Updated environment configuration and protected database credentials.
+- Tested API endpoints and validation errors using Bruno.
+- Verified frontend and backend integration.
+- Tested meal plan creation, editing, filtering and sorting.
+- Verified successful Next.js production build.

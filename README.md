@@ -63,3 +63,19 @@ In M4, we are adding MongoDB to save Meals and Meal Plans in the database.
 
 ### Testing
 The frontend was tested using `npm run build`, and the build was successful.
+
+### Backend Implementation
+- Integrated MongoDB Atlas using Mongoose.
+- Created Meal and MealPlan database models.
+- Migrated CRUD operations to MongoDB.
+- Implemented database seeding.
+- Added backend filtering, sorting and pagination.
+- Implemented request validation and error handling.
+
+### Backend and Integration Testing
+- Tested meal and meal plan CRUD operations using Bruno.
+- Verified successful creation and update operations.
+- Verified invalid requests return 400 Bad Request.
+- Tested frontend meal plan creation and editing.
+- Verified filtering and sorting.
+- Successfully completed the frontend production build.
