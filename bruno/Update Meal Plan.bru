@@ -1,0 +1,26 @@
+meta {
+  name: Update Meal Plan
+  type: http
+  seq: 9
+}
+
+put {
+  url: http://localhost:4000/api/meal-plans/{{mealPlanId}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "user-1",
+    "name": "M4 Updated Meal Plan",
+    "date": "2026-11-26",
+    "notes": "Testing MongoDB update operation"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+  forwardAuthorizationHeader: false
+}

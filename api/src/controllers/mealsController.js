@@ -1,6 +1,6 @@
-import { randomUUID } from "node:crypto";
 import { z } from "zod";
-import { meals } from "../data/meals.js";
+import Meal from "../models/Meal.js";
+import MealPlan from "../models/MealPlan.js";
 
 const mealSchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
@@ -13,68 +13,112 @@ function validateMeal(body) {
   const result = mealSchema.safeParse(body);
 
   if (!result.success) {
-    const details = result.error.issues.map((issue) => ({
+    const error = new Error("Validation failed");
+    error.status = 400;
+    error.details = result.error.issues.map((issue) => ({
       field: issue.path.join("."),
       message: issue.message
     }));
 
-    const error = new Error("Validation failed");
-    error.status = 400;
-    error.details = details;
     throw error;
   }
 
   return result.data;
 }
 
-export function getAllMeals(req, res) {
-  res.status(200).json(meals);
-}
-
-export function getMealById(req, res) {
-  const meal = meals.find((item) => item.id === req.params.id);
-
-  if (!meal) {
-    return res.status(404).json({
-      error: { message: "Meal not found", details: null }
-    });
+export async function getAllMeals(req, res, next) {
+  try {
+    const meals = await Meal.find();
+    res.status(200).json(meals);
+  } catch (error) {
+    next(error);
   }
-
-  res.status(200).json(meal);
 }
 
-export function createMeal(req, res) {
-  const data = validateMeal(req.body);
-  const meal = { id: randomUUID(), ...data };
-
-  meals.push(meal);
-  res.status(201).json(meal);
-}
-
-export function updateMeal(req, res) {
-  const meal = meals.find((item) => item.id === req.params.id);
-
-  if (!meal) {
-    return res.status(404).json({
-      error: { message: "Meal not found", details: null }
+export async function getMealById(req, res, next) {
+  try {
+    const meal = await Meal.findOne({
+      id: req.params.id
     });
+
+    if (!meal) {
+      return res.status(404).json({
+        error: {
+          message: "Meal not found",
+          details: null
+        }
+      });
+    }
+
+    res.status(200).json(meal);
+  } catch (error) {
+    next(error);
   }
-
-  const data = validateMeal(req.body);
-  Object.assign(meal, data);
-
-  res.status(200).json(meal);
 }
 
-export function deleteMeal(req, res) {
-  const index = meals.findIndex((item) => item.id === req.params.id);
+export async function createMeal(req, res, next) {
+  try {
+    const data = validateMeal(req.body);
+    const meal = await Meal.create(data);
 
-  if (index === -1) {
-    return res.status(404).json({
-      error: { message: "Meal not found", details: null }
-    });
+    res.status(201).json(meal);
+  } catch (error) {
+    next(error);
   }
+}
 
-  meals.splice(index, 1);
-  res.status(204).send();
+export async function updateMeal(req, res, next) {
+  try {
+    const data = validateMeal(req.body);
+
+    const meal = await Meal.findOneAndUpdate(
+      { id: req.params.id },
+      data,
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+
+    if (!meal) {
+      return res.status(404).json({
+        error: {
+          message: "Meal not found",
+          details: null
+        }
+      });
+    }
+
+    res.status(200).json(meal);
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function deleteMeal(req, res, next) {
+  try {
+    const meal = await Meal.findOne({
+      id: req.params.id
+    });
+
+    if (!meal) {
+      return res.status(404).json({
+        error: {
+          message: "Meal not found",
+          details: null
+        }
+      });
+    }
+
+    await MealPlan.updateMany(
+      { meals: meal._id },
+      { $pull: { meals: meal._id } }
+    );
+
+    await meal.deleteOne();
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
 }

@@ -1,4 +1,6 @@
+import "dotenv/config";
 import express from "express";
+import mongoose from "mongoose";
 import mealPlansRoutes from "./routes/mealPlansRoutes.js";
 import mealsRoutes from "./routes/mealsRoutes.js";
 import recipesRoutes from "./routes/recipesRoutes.js";
@@ -41,11 +43,32 @@ app.use((err, req, res, next) => {
       message: status === 500
         ? "Internal server error"
         : err.message,
-      details: status === 500 ? null : (err.details || null)
+      details: status === 500
+        ? null
+        : (err.details || null)
     }
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
-});
+// Connect to MongoDB and start the server
+async function startServer() {
+  try {
+    if (!process.env.MONGODB_URI) {
+      throw new Error("MONGODB_URI is missing");
+    }
+
+    await mongoose.connect(process.env.MONGODB_URI);
+
+    console.log("MongoDB connected successfully");
+
+    app.listen(PORT, () => {
+      console.log(`API running on http://localhost:${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("Server startup failed:", error.message);
+    process.exit(1);
+  }
+}
+
+startServer();
